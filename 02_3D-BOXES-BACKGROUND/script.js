@@ -1,17 +1,16 @@
-const btn = document.getElementById("btn");
-const boxesContainer = document.getElementById("boxes");
+const btn = document.getElementById("magic");
+const boxes = document.getElementById("boxes");
 
-btn.addEventListener("click", () => boxesContainer.classList.toggle("big"));
+btn.addEventListener("click", () => boxes.classList.toggle("big"));
 
-function createBoxes() {
+function generate_boxes() {
   for (let i = 0; i < 4; i++) {
     for (let j = 0; j < 4; j++) {
-      const singleBox = document.createElement("div");
-      singleBox.classList.add("box");
-      singleBox.style.backgroundPosition = `${-j * 125}px ${-i * 125}px`;
-      boxesContainer.appendChild(singleBox);
+      box = document.createElement("div");
+      box.classList.add("box");
+      box.style.backgroundPosition = `${-j * 125}px ${-i * 125}px`;
+      boxes.appendChild(box);
     }
   }
 }
-
-createBoxes();
+generate_boxes();
