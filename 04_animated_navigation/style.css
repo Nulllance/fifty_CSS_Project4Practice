@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Muli", sans-serif;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  background-image: linear-gradient(
+    to bottom,
+    #eafbff 0%,
+    #eafbff 50%,
+    #5290f9 50%,
+    #5290f9 100%
+  );
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+nav {
+  width: 80px;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 2px 5px #000000b1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  transition: width 0.6s linear;
+  overflow-x: hidden;
+}
+
+nav.active {
+  width: 350px;
+}
+
+nav ul {
+  display: flex;
+  margin: 0px;
+  padding: 0px;
+  width: 0px;
+  list-style-type: none;
+  transition: 0.6s;
+}
+
+nav.active ul {
+  width: 100%;
+  transition: 1s;
+}
+nav ul li {
+  transform: rotateY(0deg);
+  opacity: 0;
+  transition: transform 0.6s linear, opacity 0.6s linear;
+}
+nav.active ul li {
+  opacity: 1;
+  transform: rotateY(360deg);
+}
+nav ul a {
+  margin: 0px 10px;
+  color: #000000;
+  text-decoration: none;
+}
+
+.icon {
+  position: relative;
+  background-color: #fff;
+  border: none;
+  height: 30px;
+  width: 30px;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+.icon:focus {
+  outline: 0;
+}
+.icon .line {
+  background-color: #5290f9;
+  height: 2px;
+  width: 20px;
+  position: absolute;
+  top: 10px;
+  left: 5px;
+  transition: transform 0.6s;
+}
+
+.line.line2 {
+  top: auto;
+  bottom: 10px;
+}
+nav.active .line.line1 {
+  transform: rotate(765deg) translateY(5.5px);
+}
+
+nav.active .line.line2 {
+  transform: rotate(-765deg) translateY(-5.5px);
+}
