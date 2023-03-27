@@ -35,6 +35,8 @@ function finalShow() {
   finalMessage.classList.add("show");
   counter.classList.add("hide");
 }
+
 replay.addEventListener("click", () => {
   resetDOM();
+  runAnimation();
 });

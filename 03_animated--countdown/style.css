@@ -6,35 +6,39 @@
 
 body {
   font-family: "Roboto", sans-serif;
+  background-color: #fff;
   height: 100vh;
   margin: 0;
-  overflow: hidden;
 }
 
 h4 {
   font-size: 20px;
-  margin: 5px;
+  font-weight: 700;
+  color: #000;
+  /* uppercase; */
   text-transform: uppercase;
+  margin: 0;
 }
-
 .counter {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%) scale(1);
   text-align: center;
 }
-
 .counter.hide {
   transform: translate(-50%, -50%) scale(0);
-  animation: hide 0.2s ease-out;
+  animation: hide 0.3s;
 }
 
 @keyframes hide {
   0% {
     transform: translate(-50%, -50%) scale(1);
   }
-
   100% {
     transform: translate(-50%, -50%) scale(0);
   }
@@ -44,10 +48,9 @@ h4 {
   position: relative;
   color: #3498db;
   font-size: 50px;
-  overflow: hidden;
-  width: 250px;
+  width: 120px;
   height: 50px;
-  /* transform: rotate(120deg); */
+  overflow: hidden;
 }
 .nums span {
   position: absolute;
@@ -56,10 +59,11 @@ h4 {
   transform: translate(-50%, -50%) rotate(120deg);
   transform-origin: bottom center;
 }
-.nums span.in {
-  animation: goIn 0.5s ease-in-out;
-}
 
+.nums span.in {
+  transform: translate(-50%, -50%) rotate(0deg);
+  animation: goIn 0.5s;
+}
 @keyframes goIn {
   0% {
     transform: translate(-50%, -50%) rotate(120deg);
@@ -76,15 +80,15 @@ h4 {
 }
 
 .nums span.out {
-  animation: goOut 0.5s ease-in-out;
+  transform: translate(-50%, -50%) rotate(-120deg);
+  animation: goOut 0.5s;
 }
-
 @keyframes goOut {
   0% {
     transform: translate(-50%, -50%) rotate(0deg);
   }
   60% {
-    transform: translate(-50%, -50%) rotate(20deg);
+    transform: translate(-50%, -50%) rotate(10deg);
   }
   100% {
     transform: translate(-50%, -50%) rotate(-120deg);
@@ -100,41 +104,33 @@ h4 {
 }
 .final.show {
   transform: translate(-50%, -50%) scale(1);
-  animation: hide 0.2s ease-out;
+  transition: 0.3s;
 }
 
 #replay {
-  font-family: "Roboto", sans-serif;
-  display: inline-block;
   background-color: #3498db;
+  color: #fff;
   border: none;
-  padding: 5px;
   border-radius: 3px;
-  color: aliceblue;
-  text-align: center;
-}
-
-#replay span {
+  padding: 5px;
   cursor: pointer;
-  position: relative;
-  display: inline-block;
-  transition: all 0.3s;
+  transition: padding-right 0.3s;
 }
 
-#replay span::after {
+#replay:focus {
+  outline: none;
+}
+
+#replay:hover {
+  padding-right: 30px;
+}
+
+#replay::after {
   content: "\00bb";
   position: absolute;
-  right: -20px;
-  top: 0px;
-  opacity: 0;
-  transition: 0.5s;
+  right: -10px;
+  transition: right 0.5s;
 }
-
-#replay:hover span {
-  padding-right: 25px;
-}
-
-#replay:hover span::after {
-  right: 0;
-  opacity: 1;
+#replay:hover::after {
+  right: 5px;
 }
